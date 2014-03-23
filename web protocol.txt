@@ -1,0 +1,132 @@
+                             _..._                                                                 
+                          .-'_..._''.                                                              
+   .                    .' .'      '.\    .                                             .          
+ .'|                   / .'             .'|                   .-.          .-         .'|          
+<  |                  . '             .'  |                    \ \        / /       .'  |          
+ | |             __   | |            <    |                     \ \      / /  __   <    |          
+ | | .'''-.   .:--.'. | |             |   | ____                 \ \    / /.:--.'.  |   | ____     
+ | |/.'''. \ / |   \ |. '             |   | \ .'                  \ \  / // |   \ | |   | \ .'     
+ |  /    | | `" __ | | \ '.          .|   |/  .                    \ `  / `" __ | | |   |/  .      
+ | |     | |  .'.''| |  '. `._____.-'/|    /\  \                    \  /   .'.''| | |    /\  \     
+ | |     | | / /   | |_   `-.______ / |   |  \  \                   / /   / /   | |_|   |  \  \    
+ | '.    | '.\ \._,\ '/            `  '    \  \  \              |`-' /    \ \._,\ '/'    \  \  \   
+ '---'   '---'`--'  `"               '------'  '---'             '..'      `--'  `"'------'  '---' 
+ 
+Project Hack Yak - The leaders in shutting down Yik Yak.
+ 
+Yik Yak Protocol Documentation v1.0
+
+As of right now, the base URL is:
+https://yikyakapp.com/YikYakFiles/
+
+All urls listed are relative to that base URL.
+
+Parameters:
+key/key alias - information
+
+latitude/lat - Latitude on Google Maps
+longitude/long - Longitude on Google Maps
+message - The message to be posted to Yik Yak.
+comment - The comment to be posted to Yik Yak.
+distance - How far should this message go out to? Default is 2. (max 5?)  NOTE: This is a in-app store paid addon that is now available to you for free.
+handle - An nickname usable on Yik Yak's handle system.  Requires users to redeem your code to use it.
+code - The code used to unlock the handle system. 
+userID - Unique identifier that uniquely identifies each user.  This should be considered private!
+messageID - Unique number that specifically identifies the specific message posted.
+posterID - User ID of the poster who posted the message (potential leak here?).
+hidePin - Unknown. Set this to 0 or your message will fail to post. (Possible theory: Removed messages by Yik Yak's service and/or most disliked?)
+
+Types:
+%type - information
+
+%i - Number
+%f - Float (without the F at the end!)
+%s - String
+%uqid - A formatted string that appears to be a unique identifier. Usually filled with numbers and uppercase letters. Format: 00000000-0000-0000-0000-000000000000
+%? - Unknown Type (not recorded).
+
+URLs:
+/urlslug?GETparameters=%type%
+Parameters: POST variables (this assumes POST request)
+
+/getMyTops.php?userID=%uqid
+Gets your own top messages (most liked).
+
+/getComments.php?messageID=%i
+Gets the comments posted on a message.
+
+Returns: JSON data
+
+/reportMessage.php?messageID=%i&userID=%uqid
+Reports a message to Yik Yak's developers.  You should avoid using this endpoint unless you're willing to risk invalidating this protocol documentation.
+
+/deleteMessage2.php?messageID=%i&userID=%uqid
+Deletes a message.
+
+/reyakMessage.php?messageID=%i&userID=%uqid&latitude=%s&longitude=%s
+Reposts a message posted by somebody else.  This is a shitty variation of retweets.
+
+/likeComment.php?commentID=%i&userID=%uqid
+Upvotes a comment made to a message.
+
+/downvoteComment.php?commentID=%i&userID=%uqid
+Downvotes a comment made to a message.
+
+/postComment.php
+Posts a comment to a message.
+
+Parameters:
+userID=%uqid%, messageID=%i, comment=%s
+
+/getHandleInfo.php?userID=%uqid
+Gets handle information from a nickname.
+
+/updateHandle.php?userID=%uqid&handle=%s
+Updates handle for specific user ID.
+
+/redeemCode.php?userID=%uqid&code=%s
+Redeems a code from another user.
+
+/getAreaTops.php?lat=%f&long=%f
+Gets the area's top messages (most liked).
+
+Returns: JSON data
+
+/sendMessage.php
+Posts a message to Yik Yak's service.
+
+Return: 1 if successful, closes connection on failure.
+
+Parameters:
+userID, lat, long, distance, message, hidePin
+
+/reportComment.php?commentID=%i&messageID=%i&userID=%uqid&posterID=%?
+Reports a comment to Yik Yak's developers.  You should avoid using this endpoint unless you're willing to risk invalidating this protocol documentation.
+
+/deleteComment.php?commentID=%i&userID=%uqid&messageID=%i
+Deletes a comment posted to a message.
+
+/contactUs.php
+Contacts Yik Yak themselves.  You should avoid using this endpoint unless you're willing to risk invalidating this protocol documentation.
+
+/updateLocation.php?userID=%uqid&lat=%f&long=%f
+Update user's location.  This changes the message feeds for the user to be localized at the coordinates provided.
+
+/getGreatest.php
+Gets Yik Yak's top messages (most liked) globally.
+
+/registerUser.php?userID=%uqid
+Registers a user onto Yik Yak's service.
+WARNING: There's absolutely no verification done, be careful and keep your user ID private!
+
+/getMessages.php?userID=%uqid
+Gets messages from a specific user ID.  These messages are localized to the user ID's coordinates provided.
+
+Returns: JSON data
+
+/likeMessage.php?messageID=%i&userID=%uqid
+Upvotes a message posted on Yik Yak.
+
+/downvoteMessage.php?messageID=%i&userID=%uqid
+Downvotes a message posted on Yik Yak.
+
