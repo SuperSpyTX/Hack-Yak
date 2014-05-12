@@ -19,6 +19,12 @@ Yik Yak Protocol Documentation v1.0
 As of right now, the base URL is:
 https://yikyakapp.com/YikYakFiles/
 
+Another thing these stupid people added was a user-agent check.
+There needs to be an iOS or Android useragent in order to use the API.
+
+Here's one provided in issue #1:
+Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19
+
 All urls listed are relative to that base URL.
 
 Parameters:
