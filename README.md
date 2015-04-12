@@ -1,3 +1,5 @@
+**NOTE: This API is severely outdated & crap ton of things have changed since this API was instated (this is a year old!).  Until further documentation is done, this will stay outdated.**
+
 Hack Yak
 ========
 
