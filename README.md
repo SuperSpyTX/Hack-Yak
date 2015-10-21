@@ -1,5 +1,3 @@
-**NOTE(9/3/15): Please stop contacting me in regards to Yik Yak.  You guys had a better chance back in 2014.  Why now?  I'm not interested in any work towards Yik Yak anymore, despite being an evil organization.  If you would like me to do something *other* than Yik Yak, then please use my contact form at http://jkrau.se/contact-me/.**
-
 **NOTE: This API is severely outdated & crap ton of things have changed since this API was instated (this is a year old!).  Until further documentation is done, this will stay outdated.**
 
 Hack Yak
